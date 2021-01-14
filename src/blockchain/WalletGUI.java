@@ -1,0 +1,39 @@
+package blockchain;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class WalletGUI extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static WalletGUI win;
+	protected static JPanel wrap;
+	protected int height = 500;
+	protected int width = 500;
+	
+	public static void main(String[] args) {
+		win = new WalletGUI();
+	}
+	
+	public WalletGUI() {
+		win.setSize(new Dimension(width,height));
+		getContentPane().setLayout(new BorderLayout());
+		
+		wrap.add(new JLabel("hej"));
+		
+		
+		getContentPane().add(wrap);
+		win.setResizable(false);
+		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		win.setVisible(true);
+		
+	}
+	
+	
+}
