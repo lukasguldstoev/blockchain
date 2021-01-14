@@ -62,6 +62,11 @@ public class StringUtil {
 			return Base64.getEncoder().encodeToString(key.getEncoded());
 		}
 		
+		public static String getDificultyString(int difficulty) {
+			return new String(new char[difficulty]).replace('\0', '0'); //Create a string with difficulty * "0" 
+
+		}
+		
 	
 	public static String getMerkleRoot(ArrayList<Transaction> transactions) {
 		int count = transactions.size();
@@ -81,4 +86,6 @@ public class StringUtil {
 		String merkleRoot = (treeLayer.size() == 1) ? treeLayer.get(0) : "";
 		return merkleRoot;
 	}
+
+
 }

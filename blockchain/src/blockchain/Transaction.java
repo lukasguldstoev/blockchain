@@ -48,6 +48,7 @@ public class Transaction {
 			}
 
 			//check if transaction is valid:
+			System.out.println(getInputsValue() + "  - " + Blockchain.minimumTransaction);
 			if(getInputsValue() < Blockchain.minimumTransaction) {
 				System.out.println("#Transaction Inputs to small: " + getInputsValue());
 				return false;
