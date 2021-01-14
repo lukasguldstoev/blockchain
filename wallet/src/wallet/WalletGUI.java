@@ -148,7 +148,7 @@ public class WalletGUI extends JFrame implements ActionListener {
 		myAddressPanel.add(myAddress);
 		
 		JTextField hexAddress = new JTextField("F970E2767D0CFE75876EA857F92E319B");
-		hexAddress.setEditable(false);
+		hexAddress.setEditable(false); 
 
 		hexAddress.setLayout(new BoxLayout(hexAddress, BoxLayout.LINE_AXIS));
 		hexAddress.setMaximumSize(new Dimension(width,30));
@@ -160,15 +160,31 @@ public class WalletGUI extends JFrame implements ActionListener {
 		left.add(addresses);
 
 		
-		// send to address area left
-		JPanel sendCoins = new JPanel();
-		sendCoins.setBackground(Color.red);
- 
-		sendCoins.setLayout(new BoxLayout(sendCoins,BoxLayout.PAGE_AXIS));
 		
+		
+		
+		
+		
+		
+		
+		
+		// send to address area left
+		JPanel sendCoinsWrapper = new JPanel();
+		sendCoinsWrapper.setLayout(new BoxLayout(sendCoinsWrapper,BoxLayout.LINE_AXIS));
+		sendCoinsWrapper.setMaximumSize(new Dimension(leftWidth,250));
+		sendCoinsWrapper.setMinimumSize(new Dimension(leftWidth,250));
+		sendCoinsWrapper.setPreferredSize(new Dimension(leftWidth,250));
+	 
+		JPanel sendCoins = new JPanel();
+		
+		sendCoins.setLayout(new BoxLayout(sendCoins,BoxLayout.PAGE_AXIS));
+		sendCoins.setMaximumSize(new Dimension(leftWidth,250));
+		sendCoins.setMinimumSize(new Dimension(leftWidth,250));
+		sendCoins.setPreferredSize(new Dimension(leftWidth,250));
+	 
 		// title
 		JLabel title = new JLabel("Send coins"); 
-		title.setFont(new Font(Font.SANS_SERIF,Font.BOLD,14));	
+		title.setFont(new Font(Font.SANS_SERIF,Font.BOLD,13));	
 
 		title.setMaximumSize(new Dimension(width,50));
 		title.setMinimumSize(new Dimension(width,50));
@@ -181,45 +197,41 @@ public class WalletGUI extends JFrame implements ActionListener {
 		JPanel inputs = new JPanel(); 
 		inputs.setLayout(new BoxLayout(inputs,BoxLayout.PAGE_AXIS));
 
+		 
 		// address
 		JLabel addtitle = new JLabel("Address");
- 
-		addtitle.setLayout(new BoxLayout(addtitle, BoxLayout.PAGE_AXIS));
 		inputs.add(addtitle);
 		
-		JTextField recAdd = new JTextField();
-		recAdd.setPreferredSize(new Dimension(width, 30));
-		recAdd.setMaximumSize(new Dimension(width, 30));
+		JTextField recAdd = new JTextField(); 
+		recAdd.setMaximumSize(new Dimension(getWidth() + 75,40));		
 		
 		inputs.add(recAdd);
 		
 		
 		// amount
 		JLabel amtitle = new JLabel("Amount");
-		amtitle.setLayout(new BoxLayout(amtitle, BoxLayout.LINE_AXIS));
 		inputs.add(amtitle);
 		
 		JTextField amount = new JTextField();
-		amount.setPreferredSize(new Dimension(width, 30));
-		amount.setMaximumSize(new Dimension(width, 30));
+		amount.setMaximumSize(new Dimension(getWidth() + 75,40));
 		
 		inputs.add(amount);
 		
 		
 		// submit
 		JButton submit = new JButton("Send");
-		submit.setLayout(new BoxLayout(submit, BoxLayout.LINE_AXIS));
 		submit.addActionListener(this);
 		submit.setActionCommand("send");
 		submit.setBounds(getBounds());
-		submit.setMinimumSize(new Dimension(width, 30));
-		submit.setMaximumSize(new Dimension(width, 30));
+		submit.setMinimumSize(new Dimension(getWidth() - 262, 30));
+		submit.setMaximumSize(new Dimension(getWidth() - 262, 30));
 		
 		
 		inputs.add(submit);
 		sendCoins.add(inputs);
+		sendCoinsWrapper.add(sendCoins);
 		
-		left.add(sendCoins);
+		left.add(sendCoinsWrapper);
 		
 		
 		/**
